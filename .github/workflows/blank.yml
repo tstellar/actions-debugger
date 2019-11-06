@@ -1,0 +1,13 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+    - name: Run a multi-line script
+      run: |
+        /usr/local/opt/python@2/bin/python2.7 -c "print(' ' * 75)" > llvmcache-foo-75
+        touch -t 198002041200 llvmcache-foo-75
+        ls llvmcache-foo-75
