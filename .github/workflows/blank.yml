@@ -17,5 +17,7 @@ jobs:
       run: |
         python2.7 -c "print(' ' * 75)" > llvmcache-foo-75
         ls -l llvmcache-foo-75
+        cat llvmcache-foo-75
         touch -t 198002041200 llvmcache-foo-75
         ls -l llvmcache-foo-75
+        cat llvmcache-foo-75
