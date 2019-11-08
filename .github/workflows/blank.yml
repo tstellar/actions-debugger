@@ -7,4 +7,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Send Email
-      run:  curl -O https://github.com/tstellar/actions-debugger/tarball/${GITHUB_SHA}/test.tar.gz
+      run:  curl -L -O https://github.com/tstellar/actions-debugger/tarball/${GITHUB_SHA}/test.tar.gz
+      
+    - name: View vile
+      run : cat test.tar.gz
