@@ -1,23 +1,13 @@
-name: CI
-
-on: [push]
+name: Commit Emailer
+on:
+  push:
+    branches:
+      - master
+      - releases/**
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-          - windows-latest
-          - macOS-latest
+  send-email:
+    runs-on: ubuntu-latest
     steps:
-    - name: Run a multi-line script
-      run: |
-        python2.7 -c "print(' ' * 75)" > llvmcache-foo-75
-        ls -l llvmcache-foo-75
-        cat llvmcache-foo-75
-        touch -t 198002041200 llvmcache-foo-75
-        ls -l llvmcache-foo-75
-        cat llvmcache-foo-75
+    - name: Send Email
+      run:  cat $GITHUB_EVENT_PATH
