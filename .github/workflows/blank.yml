@@ -10,4 +10,6 @@ jobs:
       run:  curl -L -O https://github.com/tstellar/actions-debugger/tarball/${GITHUB_SHA}/test.tar.gz
       
     - name: View vile
-      run : cat test.tar.gz
+      run : |
+        ls
+        cat test.tar.gz
