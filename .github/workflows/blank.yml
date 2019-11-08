@@ -7,4 +7,4 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Send Email
-      run:  curl -O http://github.com
+      run:  curl -O https://github.com
