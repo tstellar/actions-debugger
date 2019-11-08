@@ -1,13 +1,10 @@
-name: Commit Emailer
+name: Test
 on:
   push:
-    branches:
-      - master
-      - releases/**
 
 jobs:
-  send-email:
-    runs-on: ubuntu-latest
+  curl:
+    runs-on: windows-latest
     steps:
     - name: Send Email
-      run:  cat $GITHUB_EVENT_PATH
+      run:  curl -O http://github.com
