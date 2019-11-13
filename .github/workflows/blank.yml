@@ -6,5 +6,11 @@ jobs:
   send-email:
     runs-on: macOS-latest
     steps:
-    - name: Send Email
+    - name: clang verbose
       run: clang --verbose
+    - name: libcxx path
+      run: echo "int main(){}" | clang++ -x c++ -### -o test.o -
+    - name: Find mutex
+      run: find / -iname mutex
+      
+      
