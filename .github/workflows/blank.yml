@@ -6,14 +6,20 @@ env:
 
 jobs:
   test:
-    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+    runs-on:
+      - windows-latest
+      - ubuntu-latest
+      - macOS-latest
     steps:
-      - name: Use action
-        uses: tstellar/actions/get-llvm-project-src@master
-        with:
-          ref: master
       - name: Download
         run: curl -L -O http://github.com/llvm/llvm-project/archive/master/download.zip;
       - name: Unzip
         run: unzip download.zip
+      - name: Use actions
+        uses: tstellar/actions/get-llvm-project-src@master
+        with:
+          ref: master
+
  
