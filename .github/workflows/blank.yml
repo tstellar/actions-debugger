@@ -1,6 +1,6 @@
-name: Test
-on:
-  push:
+name: ${{ github.event_name }}
+on: [push, pull_request]
+
 env:
   test_env: 9
 
