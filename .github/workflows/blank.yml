@@ -7,6 +7,14 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        name:
+          - build-baseline
+          - build-latest
+        include:
+          - name: build-baseline
+            ref: llvmorg-${{ env.test_env }}.0.0
     steps:
       - name: ${{ env.test_env }}
         run: echo ${{ env.test_env }}
