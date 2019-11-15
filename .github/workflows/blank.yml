@@ -15,13 +15,8 @@ jobs:
           - macOS-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Download
-        run: curl -L -O http://github.com/llvm/llvm-project/archive/master/download.zip;
-      - name: Unzip
-        run: unzip download.zip
       - name: Use actions
-        uses: tstellar/actions/get-llvm-project-src@master
-        with:
-          ref: master
+        uses: tstellar/actions/install-ninja@master
+
 
  
