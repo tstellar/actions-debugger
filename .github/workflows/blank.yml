@@ -16,7 +16,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Use actions
-        uses: tstellar/actions/install-ninja@master
+        uses: tstellar/actions/install-ninja@no-os
 
 
  
