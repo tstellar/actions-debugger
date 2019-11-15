@@ -8,7 +8,12 @@ jobs:
   test:
     strategy:
       fail-fast: false
-    runs-on: [windows-latest, ubuntu-latest, macOS-latest]
+      matrix:
+        os:
+          - windows-latest
+          - ubuntu-latest
+          - macOS-latest
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Download
         run: curl -L -O http://github.com/llvm/llvm-project/archive/master/download.zip;
