@@ -2,7 +2,7 @@ name: Test
 on:
   push:
 env:
-  test_env: foo
+  test_env: 9
 
 jobs:
   test:
