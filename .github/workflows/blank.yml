@@ -8,6 +8,10 @@ jobs:
   test:
     runs-on: windows-latest
     steps:
+      - name: Use action
+        uses: tstellar/actions/get-llvm-project-src@master
+        with:
+          ref: master
       - name: Download
         run: curl -L -O http://github.com/llvm/llvm-project/archive/master/download.zip;
       - name: Unzip
