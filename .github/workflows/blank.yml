@@ -1,20 +1,13 @@
 name: Test
 on:
   push:
-
+env:
+  test_env: foo
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Create directory
-        run: |
-          mkdir -p test/test2
-          echo "hello" > test/a.txt
-          echo "hello" > test/test2/a.txt
-      - name: Upload
-        if: always()
-        uses: actions/upload-artifact@v1
-        with:
-          name: test-name
-          path: test/
+      - name: ${{ env.test_env }}
+        run: echo ${{ env.test_env }}
+ 
