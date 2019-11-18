@@ -1,27 +1,13 @@
-name: Test
+name: Commit Emailer
 on:
-  push:
-env:
-  test_env: 9
+  issue_comment:
+    types:
+      - created
+      - edited
 
 jobs:
-  test:
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - windows-latest
-          - ubuntu-latest
-          - macOS-latest
-    runs-on: ${{ matrix.os }}
+  send-email:
+    runs-on: ubuntu-latest
     steps:
-      - name: Download
-        run: curl -L -O http://github.com/llvm/llvm-project/archive/master/download.zip;
-      - name: Unzip
-        run: unzip download.zip
-      - name: Use actions
-        uses: tstellar/actions/get-llvm-project-src@master
-        with:
-          ref: master
-
- 
+    - name: Test
+      run: echo "Hello"
