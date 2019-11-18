@@ -1,16 +1,16 @@
 name: Commit Emailer
 on:
-  push:
+  issue_comment:
+    types:
+      - created
+      - edited
 
 jobs:
   send-email:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     steps:
-    - name: clang verbose
-      run: clang --verbose
-    - name: libcxx path
-      run: echo "int main(){}" | clang++ -x c++ -### -o test.o -
-    - name: Find mutex
-      run: find / -iname mutex
+    - name: Test
+      run: echo "Hello"
+
       
       
