@@ -4,6 +4,10 @@ on:
     types:
       - created
       - edited
+  issues:
+    types:
+      - created
+      - milestoned
 
 jobs:
   respond-to-issue:
