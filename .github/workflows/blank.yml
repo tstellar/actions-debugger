@@ -1,17 +1,31 @@
-name: Issue Tester
+name: Releases
 on:
-  issue_comment:
-    types:
-      - created
-      - edited
-  issues:
-    types:
-      - opened
-      - milestoned
+  push:
+    tags:
+      - 'llvmorg*'
 
 jobs:
-  respond-to-issue:
+  release:
     runs-on: ubuntu-latest
     steps:
-    - name: Test
-      run: echo "Hello"
+      - name: Creat file
+        run: echo test > test
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release Test
+      - name: Upload artifacts
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: test
+          asset_name: test
+          asset_content_type: application/text
+        
+
